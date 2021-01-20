@@ -1,4 +1,5 @@
 import './App.css';
+import React, { Component } from 'react'
 
 // State
   // Sounds array = [kick: X, snare: X, hihat: X, , ride: X, tom: X, etc]
@@ -8,27 +9,27 @@ const AudioContext = window.AudioContext || window.webkitAudioContext; // for le
 
 const audioContext = new AudioContext();
 
-function App() {
-  return (
-    <div className="App">
-      <div className="drumpads">
-      <button onClick={playsound}>Kick</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>     
+class App extends Component {
+  render() {
+    
+    // This should be in state
+    const samples = ['Kick', 'Snare', 'Hi-hat'];
+
+    return (
+      <div className="App">
+          {samples.map((value, index) => {
+          return <button key={index} onClick={()=> this.playsound(index)}>{value}</button>
+          })}        
       </div>
-    </div>
-  );
+    );
+  }
+playsound = (event) => {
+  alert("button clicked")
+  }
 }
 
-function playsound() {
-  alert("this is the kick");
-}
+
+
 
 
 export default App;
