@@ -1,35 +1,44 @@
 import './App.css';
 import React, { Component } from 'react'
+import useSound from 'use-sound';
 
-// State
-  // Sounds array = [kick: X, snare: X, hihat: X, , ride: X, tom: X, etc]
+import kick17 from './sounds/kick17.wav';
 
-// Web audio API - Create audio context  
-const AudioContext = window.AudioContext || window.webkitAudioContext; // for legacy browsers
+const Drumpads = () => {
+  const [play] = useSound(kick17);
 
-const audioContext = new AudioContext();
+  return <button onClick={play}>Kick</button>;
+};
 
 class App extends Component {
-  render() {
-    
-    // This should be in state
-    const samples = ['Kick', 'Snare', 'Hi-hat'];
-
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+        samples: ["Kick","Snare","Hi-hat"],
+    };
+  }
+    render() {   
+    // Creates a button for each sample
     return (
       <div className="App">
-          {samples.map((value, index) => {
-          return <button key={index} onClick={()=> this.playsound(index)}>{value}</button>
-          })}        
+
+        <Drumpads></Drumpads>
       </div>
     );
   }
-playsound = (event) => {
-  alert("button clicked")
-  }
 }
 
+// TODO: Make array with samples
 
+// TODO: Get button to play sample from array
 
+// TODO: Make button take name input to show name of sample
 
+// TODO: Get key pressed
+
+// TODO: Get value of button clicked
+
+// TODO: Play sound at index[i]
 
 export default App;
