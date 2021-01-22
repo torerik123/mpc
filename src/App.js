@@ -1,35 +1,41 @@
 import './App.css';
 import React, { Component } from 'react'
 import useSound from 'use-sound';
-
 import kick17 from './sounds/kick17.wav';
 
-const Drumpads = () => {
-  const [play] = useSound(kick17);
+// TODO: IMPORT HOWLER.js
+// TODO: Play sound function
 
-  return <button onClick={play}>Kick</button>;
-};
+const samples = [
+  {sound: kick17, label:"kick"},
+  {sound: kick17, label:"kick"}, 
+  {sound: kick17, label:"kick"},
+]
 
 class App extends Component {
-  
-  constructor(props) {
-    super(props);
-    this.state = {
-        samples: ["Kick","Snare","Hi-hat"],
-    };
+
+  // Creates a button for each sample
+  renderbuttons = () => {
+    return samples.map((soundObj, i) => {
+      return <button key={i} onClick={()=>{this.playsound(i)}}>{i}</button>
+    })
   }
-    render() {   
-    // Creates a button for each sample
+
+  // Plays samples
+  playsound = (index) => {
+    alert("button" + index + "clicked")
+  }
+
+  // Render app
+  render() {   
     return (
       <div className="App">
-
-        <Drumpads></Drumpads>
+        <div>{this.renderbuttons()}</div>        
       </div>
     );
   }
-}
 
-// TODO: Make array with samples
+}
 
 // TODO: Get button to play sample from array
 
@@ -38,7 +44,5 @@ class App extends Component {
 // TODO: Get key pressed
 
 // TODO: Get value of button clicked
-
-// TODO: Play sound at index[i]
 
 export default App;
