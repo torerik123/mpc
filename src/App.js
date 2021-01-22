@@ -1,15 +1,14 @@
 import './App.css';
 import React, { Component } from 'react'
-import useSound from 'use-sound';
+import {Howl, Howler} from 'howler';
 import kick17 from './sounds/kick17.wav';
-
-// TODO: IMPORT HOWLER.js
-// TODO: Play sound function
+import snare14 from './sounds/snare14.wav';
+import hihat3 from './sounds/hihat3.wav';
 
 const samples = [
-  {sound: kick17, label:"kick"},
-  {sound: kick17, label:"kick"}, 
-  {sound: kick17, label:"kick"},
+  {sound: kick17, label:"Kick"},
+  {sound: snare14, label:"Snare"}, 
+  {sound: hihat3, label:"Hi-hat"},
 ]
 
 class App extends Component {
@@ -17,13 +16,20 @@ class App extends Component {
   // Creates a button for each sample
   renderbuttons = () => {
     return samples.map((soundObj, i) => {
-      return <button key={i} onClick={()=>{this.playsound(i)}}>{i}</button>
+      return (
+        <button key={i} onClick={()=> this.playsound(soundObj.sound)}>
+          {soundObj.label}
+        </button>
+      ) 
     })
   }
 
   // Plays samples
-  playsound = (index) => {
-    alert("button" + index + "clicked")
+  playsound = (src) => {
+    const sound = new Howl({
+      src
+    });
+    sound.play()
   }
 
   // Render app
