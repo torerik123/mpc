@@ -12,14 +12,16 @@ const samples = [
 ]
 
 class App extends Component {
-
+  
   // Creates a button for each sample
   renderbuttons = () => {
     return samples.map((soundObj, i) => {
       return (
-        <button key={i} onClick={()=> this.playsound(soundObj.sound)}>
-          {soundObj.label}
-        </button>
+        <div>
+          <button key={i} onClick={()=> this.playsound(soundObj.sound)}>
+            {soundObj.label}
+          </button>
+        </div>
       ) 
     })
   }
@@ -32,23 +34,38 @@ class App extends Component {
     sound.play()
   }
 
+
+  handleKeyPress = (event) => {
+      console.log(event.key)
+  }
+
+  // Listen for key press
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKeyPress);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyPress);
+  }
+
   // Render app
-  render() {   
+  render() {
+     
     return (
       <div className="App">
-        <div>{this.renderbuttons()}</div>        
+        <div>
+          {this.renderbuttons()}
+        </div>        
       </div>
     );
   }
-
+  
 }
-
-// TODO: Get button to play sample from array
-
-// TODO: Make button take name input to show name of sample
 
 // TODO: Get key pressed
 
-// TODO: Get value of button clicked
+// TODO: Create full drum kit - Separate into different file
+
+// TODO: Switch drum kit
 
 export default App;
