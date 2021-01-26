@@ -6,9 +6,9 @@ import snare14 from './sounds/snare14.wav';
 import hihat3 from './sounds/hihat3.wav';
 
 const samples = [
-  {sound: kick17, label:"Kick"},
-  {sound: snare14, label:"Snare"}, 
-  {sound: hihat3, label:"Hi-hat"},
+  {key: "Q", sound: kick17, label:"Kick"},
+  {key: "W", sound: snare14, label:"Snare"}, 
+  {key: "E",sound: hihat3, label:"Hi-hat"},
 ]
 
 class App extends Component {
@@ -34,11 +34,6 @@ class App extends Component {
     sound.play()
   }
 
-
-  handleKeyPress = (event) => {
-      console.log(event.key)
-  }
-
   // Listen for key press
   componentDidMount() {
     document.addEventListener('keydown', this.handleKeyPress);
@@ -46,6 +41,34 @@ class App extends Component {
 
   componentWillUnmount() {
     document.removeEventListener('keydown', this.handleKeyPress);
+  }
+
+  existsInObj = (key, obj) => {
+    // Looks for key in given array
+    let isFound = false
+
+    Object.values(obj).forEach(row => {
+      // Return true if found
+      if (key === row.key) {
+        isFound = true
+       }
+    });
+    // Return false if not found
+    return isFound
+  };
+
+  handleKeyPress = (event) => {
+    // Make key pressed uppercase
+    const keyPressed = event.key.toUpperCase()
+    console.log(keyPressed + " pressed")
+    
+    if (this.existsInObj(keyPressed, samples)) {
+      console.log("Found")
+    }
+    
+    // Play sound if key pressed in array
+      
+      
   }
 
   // Render app
