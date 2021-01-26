@@ -26,8 +26,10 @@ class App extends Component {
     })
   }
 
-  // Plays samples
+
   playsound = (src) => {
+    // Play samples
+    
     const sound = new Howl({
       src
     });
@@ -43,33 +45,43 @@ class App extends Component {
     document.removeEventListener('keydown', this.handleKeyPress);
   }
 
+
   existsInObj = (key, obj) => {
-    // Looks for key in given array
+    // Checks if key exists in an object
+    
     let isFound = false
 
     Object.values(obj).forEach(row => {
+      
       // Return true if found
       if (key === row.key) {
         isFound = true
        }
     });
+    
     // Return false if not found
     return isFound
   };
 
+
   handleKeyPress = (event) => {
+    // Get key pressed and play corresponding sound
+    
     // Make key pressed uppercase
     const keyPressed = event.key.toUpperCase()
-    console.log(keyPressed + " pressed")
     
+    // Check if key pressed exists in samples
     if (this.existsInObj(keyPressed, samples)) {
-      console.log("Found")
-    }
-    
-    // Play sound if key pressed in array
       
-      
-  }
+      // Play corresponding sound
+      samples.forEach(element => {
+        if (element.key === keyPressed) {
+          this.playsound(element.sound)
+        }
+      });
+    };      
+  };
+
 
   // Render app
   render() {
@@ -85,10 +97,10 @@ class App extends Component {
   
 }
 
-// TODO: Get key pressed
-
 // TODO: Create full drum kit - Separate into different file
 
 // TODO: Switch drum kit
+
+// TODO: CSS
 
 export default App;
