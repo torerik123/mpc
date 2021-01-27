@@ -33,7 +33,7 @@ class App extends Component {
     return samples.map((soundObj, i) => {
       return (
         <div>
-          <button key={i} onClick={()=> this.playsound(soundObj.sound)}>
+          <button className="drumpad" key={i} onClick={()=> this.playsound(soundObj.sound)}>
             {soundObj.label}
           </button>
         </div>
@@ -103,16 +103,40 @@ class App extends Component {
      
     return (
       <div className="App">
-        <div>
-          {this.renderbuttons()}
+        <div className="container">
+          <div className="mpc">
+            <div className="pad-container">
+              {this.renderbuttons()}
+            </div>
+            <div className="kit-controls">
+              <div className="kit-controls-margin">
+              <div className="kit-row-1">
+                <div className="kit-selected"> 
+                  <p className="kit-text">Kit selected</p> 
+                </div>
+              </div>
+              <p className="pad-bank-title">PAD BANK</p>
+              <div className="kit-row-2">
+                <div className="pad-bank-container"> 
+                  <button className="pad-bank-btn">1</button>
+                  <button className="pad-bank-btn">2</button>
+                  <button className="pad-bank-btn">3</button>
+                  <button className="pad-bank-btn">4</button>
+                </div>
+              </div>
+              <div className="kit-row-3">
+                <p className="how-to-use">Pad bank: Select drum kits<br></br>
+                                          Play sound: Use the keyboard or click the pads to play samples</p>
+              </div>
+              </div>
+            </div>
+          </div>
         </div>        
       </div>
     );
   }
   
 }
-
-// TODO: Create full drum kit - DJTECHTOOLS sample packs 
 
 // TODO: Separate drum kits into different file
 

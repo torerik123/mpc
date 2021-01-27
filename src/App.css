@@ -1,3 +1,95 @@
 .App {
   text-align: center;
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.mpc {
+  width:50%;
+  display: flex;
+  align-self:center;
+  justify-content: space-between;
+  background-color: #262626;
+}
+
+/* Drumpads */
+.pad-container {
+  display: flex;
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+}
+
+.drumpad {
+  width:100px;
+  height:100px;
+  border-width: 1px;
+}
+
+.kit-controls {
+  display: flex;
+  justify-content: center;
+}
+
+.kit-controls-margin {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width:90%;
+}
+
+.kit-selected {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  height:40px;
+  background-color: lightskyblue;
+  color:#000;
+  font-weight: bold;
+}
+
+.kit-text {
+  text-align: center;
+  margin-top:15px;
+}
+
+.kit-row-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:30px;
+  height:70px;
+  width:100%;
+}
+
+.kit-row-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.pad-bank-title {
+  color:#FFF;
+  font-weight: bold;
+  margin:0;
+}
+
+.pad-bank-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pad-bank-btn {
+  width: 40px;
+  margin-top: 10px;  
+}
+
+.how-to-use {
+  text-align: center;
+  margin-top: 10px;
+  color:#FFF;
+}
