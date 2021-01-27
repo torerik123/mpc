@@ -1,14 +1,29 @@
 import './App.css';
 import React, { Component } from 'react'
 import {Howl, Howler} from 'howler';
-import kick17 from './sounds/kick17.wav';
-import snare14 from './sounds/snare14.wav';
-import hihat3 from './sounds/hihat3.wav';
+import oldskool_hat1 from './sounds/oldskool/oldskool_hat1.wav';
+import oldskool_hat2 from './sounds/oldskool/oldskool_hat2.wav';
+import oldskool_kick1 from './sounds/oldskool/oldskool_kick1.wav';
+import oldskool_kick2 from './sounds/oldskool/oldskool_kick2.wav';
+import oldskool_perc1 from './sounds/oldskool/oldskool_perc1.wav';
+import oldskool_perc2 from './sounds/oldskool/oldskool_perc2.wav';
+import oldskool_perc3 from './sounds/oldskool/oldskool_perc3.wav';
+import oldskool_snare1 from './sounds/oldskool/oldskool_snare1.wav';
+import oldskool_snare2 from './sounds/oldskool/oldskool_snare2.wav';
 
 const samples = [
-  {key: "Q", sound: kick17, label:"Kick"},
-  {key: "W", sound: snare14, label:"Snare"}, 
-  {key: "E",sound: hihat3, label:"Hi-hat"},
+  {key: "Q", sound: oldskool_perc1, label:"Q"},
+  {key: "W", sound:oldskool_hat1 , label:"W"}, 
+  {key: "E",sound:oldskool_hat2, label:"E"},
+
+  {key: "A",sound:oldskool_perc3, label:"A"},
+  {key: "S",sound:oldskool_snare1, label:"S"},
+  {key: "D",sound:oldskool_snare2, label:"D"},
+  
+  {key: "Z",sound:oldskool_perc2, label:"Z"},
+  {key: "X",sound:oldskool_kick2, label:"X"},
+  {key: "C",sound:oldskool_kick1, label:"C"},
+  
 ]
 
 class App extends Component {
@@ -97,7 +112,9 @@ class App extends Component {
   
 }
 
-// TODO: Create full drum kit - Separate into different file
+// TODO: Create full drum kit - DJTECHTOOLS sample packs 
+
+// TODO: Separate drum kits into different file
 
 // TODO: Switch drum kit
 
