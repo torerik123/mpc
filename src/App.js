@@ -42,13 +42,28 @@ class App extends Component {
                     };
 
                 }
-  // Creates a button for each sample
+
+  
   renderbuttons = () => {
+    // Creates a button for each sample
     return samples.map((soundObj, i) => {
       return (
         <div>
           <button className="drumpad" key={i} onClick={()=> this.playsound(soundObj.sound)}>
             {soundObj.label}
+          </button>
+        </div>
+      ) 
+    })
+  }
+
+  renderpadbank = () => {
+    // Creates buttons for switching drumkits
+    return drumkits.map((obj, i) => {
+      return (
+        <div>
+          <button className="pad-bank-btn" key={i} onClick={()=> this.changeKit(i+1)}>
+            {obj.key}
           </button>
         </div>
       ) 
@@ -156,10 +171,7 @@ class App extends Component {
               <p className="pad-bank-title">PAD BANK</p>
               <div className="kit-row-2">
                 <div className="pad-bank-container"> 
-                  <button className="pad-bank-btn" onClick={()=> this.changeKit(1)}>1</button>
-                  <button className="pad-bank-btn" onClick={()=> this.changeKit(2)}>2</button>
-                  <button className="pad-bank-btn" onClick={()=> this.changeKit(3)}>3</button>
-                  <button className="pad-bank-btn" onClick={()=> this.changeKit(4)}>4</button>
+                  {this.renderpadbank()}
                 </div>
               </div>
               <div className="kit-row-3">
@@ -175,8 +187,6 @@ class App extends Component {
   }
   
 }
-
-// TODO: Render pad bank buttons with the changeKit function
 
 // TODO: Separate drum kits into different file
 
