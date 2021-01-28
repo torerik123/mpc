@@ -26,8 +26,22 @@ const samples = [
   
 ]
 
+const drumkits = [
+  {key: "1", name: "Old Skool"},
+  {key: "2", name: "Kit 2"},
+  {key: "3", name: "Kit 3"},
+  {key: "4", name: "Kit 4"}
+
+]
+
 class App extends Component {
-  
+  constructor(props) {
+                    super(props);
+                    this.state = {
+                        selectedkit: drumkits[0].name
+                    };
+
+                }
   // Creates a button for each sample
   renderbuttons = () => {
     return samples.map((soundObj, i) => {
@@ -57,7 +71,7 @@ class App extends Component {
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.handleKeyPress);
+    document.removeEventListener('keydown',this.handleKeyPress);
   }
 
 
@@ -80,7 +94,12 @@ class App extends Component {
 
 
   handleKeyPress = (event) => {
-    // Get key pressed and play corresponding sound
+    // Get key pressed -> Play sound or change drumkits
+
+    // If key pressed is a number - change drumkit
+    if (!isNaN(event.key))  {
+      this.changeKit(event.key)
+    } 
     
     // Make key pressed uppercase
     const keyPressed = event.key.toUpperCase()
@@ -97,6 +116,24 @@ class App extends Component {
     };      
   };
 
+  changeKit = (event) => {
+    // Change drumkits with the pad bank buttons
+
+    const keyPressed = event.toString()
+
+    // Check if pressed key exists in drumkits
+    if (this.existsInObj(keyPressed, drumkits)) {
+      // Map over drumkits, find the name of selected drumkit and update state
+      drumkits.forEach((kit) => {
+        if (kit.key === keyPressed) {
+          this.setState({
+            selectedkit: kit.name
+        });
+        }
+      })
+    }
+  }
+
 
   // Render app
   render() {
@@ -110,18 +147,19 @@ class App extends Component {
             </div>
             <div className="kit-controls">
               <div className="kit-controls-margin">
+              <p className="kit-selected-title">SELECTED KIT</p>
               <div className="kit-row-1">
                 <div className="kit-selected"> 
-                  <p className="kit-text">Kit selected</p> 
+                  <p className="kit-text">{this.state.selectedkit}</p> 
                 </div>
               </div>
               <p className="pad-bank-title">PAD BANK</p>
               <div className="kit-row-2">
                 <div className="pad-bank-container"> 
-                  <button className="pad-bank-btn">1</button>
-                  <button className="pad-bank-btn">2</button>
-                  <button className="pad-bank-btn">3</button>
-                  <button className="pad-bank-btn">4</button>
+                  <button className="pad-bank-btn" onClick={()=> this.changeKit(1)}>1</button>
+                  <button className="pad-bank-btn" onClick={()=> this.changeKit(2)}>2</button>
+                  <button className="pad-bank-btn" onClick={()=> this.changeKit(3)}>3</button>
+                  <button className="pad-bank-btn" onClick={()=> this.changeKit(4)}>4</button>
                 </div>
               </div>
               <div className="kit-row-3">
@@ -138,9 +176,9 @@ class App extends Component {
   
 }
 
-// TODO: Separate drum kits into different file
+// TODO: Render pad bank buttons with the changeKit function
 
-// TODO: Switch drum kit
+// TODO: Separate drum kits into different file
 
 // TODO: CSS
 
