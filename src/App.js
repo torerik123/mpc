@@ -1,6 +1,8 @@
 import './App.css';
 import React, { Component } from 'react'
 import {Howl, Howler} from 'howler';
+
+// Kit 1
 import oldskool_hat1 from './sounds/oldskool/oldskool_hat1.wav';
 import oldskool_hat2 from './sounds/oldskool/oldskool_hat2.wav';
 import oldskool_kick1 from './sounds/oldskool/oldskool_kick1.wav';
@@ -10,6 +12,28 @@ import oldskool_perc2 from './sounds/oldskool/oldskool_perc2.wav';
 import oldskool_perc3 from './sounds/oldskool/oldskool_perc3.wav';
 import oldskool_snare1 from './sounds/oldskool/oldskool_snare1.wav';
 import oldskool_snare2 from './sounds/oldskool/oldskool_snare2.wav';
+
+// Kit 2
+import buzz from './sounds/buchladrums/Buzz.wav';
+import clave from './sounds/buchladrums/Clave.wav';
+import clumk from './sounds/buchladrums/Clumk.wav';
+import congabig from './sounds/buchladrums/Congabig.wav';
+import midtom from './sounds/buchladrums/Midtom.wav';
+import Tabla8 from './sounds/buchladrums/Tabla8.wav';
+import Tabla9 from './sounds/buchladrums/Tabla9.wav';
+import Tabla11 from './sounds/buchladrums/Tabla11.wav';
+import Woodblock from './sounds/buchladrums/Woodblock.wav';
+
+// Kit 3
+import AltSD5 from './sounds/drumbrute/AltSD5.wav';
+import Clap2 from './sounds/drumbrute/Clap2.wav';
+import Clap3 from './sounds/drumbrute/Clap3.wav';
+import Hats1 from './sounds/drumbrute/Hats1.wav';
+import Hats37 from './sounds/drumbrute/Hats37.wav';
+import KickALong2 from './sounds/drumbrute/KickALong2.wav';
+import Kick12 from './sounds/drumbrute/Kik12.wav';
+import KickOD4 from './sounds/drumbrute/KikOD4.wav';
+import Snare29 from './sounds/drumbrute/Snare29.wav';
 
 const samples = {
   "Old Skool": {
@@ -24,49 +48,35 @@ const samples = {
     "8": {key: "C",sound:oldskool_kick1, label:"C"}
   },
 
-  "Kit 2" : {
-    "0": {key: "Q", sound: oldskool_perc1, label:"Q"},
-    "1": {key: "W", sound:oldskool_hat1 , label:"W"},
-    "2": {key: "E",sound:oldskool_hat2, label:"E"},
-    "3": {key: "A",sound:oldskool_perc3, label:"A"},
-    "4": {key: "S",sound:oldskool_snare1, label:"S"},
-    "5": {key: "D",sound:oldskool_snare2, label:"D"},
-    "6": {key: "Z",sound:oldskool_perc2, label:"Z"},
-    "7": {key: "X",sound:oldskool_kick2, label:"X"},
-    "8": {key: "C",sound:oldskool_kick1, label:"C"}
+  "Buchla Drums" : {
+    "0": {key: "Q", sound: buzz, label:"Q"},
+    "1": {key: "W", sound:clumk , label:"W"},
+    "2": {key: "E",sound:congabig, label:"E"},
+    "3": {key: "A",sound:clave, label:"A"},
+    "4": {key: "S",sound:Tabla9, label:"S"},
+    "5": {key: "D",sound:Tabla11, label:"D"},
+    "6": {key: "Z",sound:Tabla8, label:"Z"},
+    "7": {key: "X",sound:midtom, label:"X"},
+    "8": {key: "C",sound:Woodblock, label:"C"}
   },
 
-  "Kit 3": {
-    "0": {key: "Q", sound: oldskool_perc1, label:"Q"},
-    "1": {key: "W", sound:oldskool_hat1 , label:"W"},
-    "2": {key: "E",sound:oldskool_hat2, label:"E"},
-    "3": {key: "A",sound:oldskool_perc3, label:"A"},
-    "4": {key: "S",sound:oldskool_snare1, label:"S"},
-    "5": {key: "D",sound:oldskool_snare2, label:"D"},
-    "6": {key: "Z",sound:oldskool_perc2, label:"Z"},
-    "7": {key: "X",sound:oldskool_kick2, label:"X"},
-    "8": {key: "C",sound:oldskool_kick1, label:"C"}
+  "Drum Brute": {
+    "0": {key: "Q", sound: Hats37, label:"Q"},
+    "1": {key: "W", sound:Hats1 , label:"W"},
+    "2": {key: "E",sound:AltSD5, label:"E"},
+    "3": {key: "A",sound:Clap3, label:"A"},
+    "4": {key: "S",sound:Clap2, label:"S"},
+    "5": {key: "D",sound:Snare29, label:"D"},
+    "6": {key: "Z",sound:KickALong2, label:"Z"},
+    "7": {key: "X",sound:Kick12, label:"X"},
+    "8": {key: "C",sound:KickOD4, label:"C"}
   },
-
-  "Kit 4": {
-    "0": {key: "Q", sound: oldskool_perc1, label:"Q"},
-    "1": {key: "W", sound:oldskool_hat1 , label:"W"},
-    "2": {key: "E",sound:oldskool_hat2, label:"E"},
-    "3": {key: "A",sound:oldskool_perc3, label:"A"},
-    "4": {key: "S",sound:oldskool_snare1, label:"S"},
-    "5": {key: "D",sound:oldskool_snare2, label:"D"},
-    "6": {key: "Z",sound:oldskool_perc2, label:"Z"},
-    "7": {key: "X",sound:oldskool_kick2, label:"X"},
-    "8": {key: "C",sound:oldskool_kick1, label:"C"}
-  }
  }
 
 const drumkits = [
   {key: "1", name: "Old Skool"},
-  {key: "2", name: "Kit 2"},
-  {key: "3", name: "Kit 3"},
-  {key: "4", name: "Kit 4"}
-
+  {key: "2", name: "Buchla Drums"},
+  {key: "3", name: "Drum Brute"},
 ]
 
 class App extends Component {
@@ -75,7 +85,6 @@ class App extends Component {
                     this.state = {
                         selectedkit: drumkits[0].name
                     };
-
                 }
 
   
@@ -140,12 +149,12 @@ class App extends Component {
   }
 
 
-  existsInObj = (key, selectedkit) => {
+  existsInObj = (key, obj) => {
     // Checks if key exists in an object
 
     let isFound = false
 
-    Object.values(selectedkit).forEach(row => {
+    Object.values(obj).forEach(row => {
       // Return true if found
       if (key === row.key) {
         isFound = true
