@@ -25,15 +25,39 @@ const samples = {
   },
 
   "Kit 2" : {
-
+    "0": {key: "Q", sound: oldskool_perc1, label:"Q"},
+    "1": {key: "W", sound:oldskool_hat1 , label:"W"},
+    "2": {key: "E",sound:oldskool_hat2, label:"E"},
+    "3": {key: "A",sound:oldskool_perc3, label:"A"},
+    "4": {key: "S",sound:oldskool_snare1, label:"S"},
+    "5": {key: "D",sound:oldskool_snare2, label:"D"},
+    "6": {key: "Z",sound:oldskool_perc2, label:"Z"},
+    "7": {key: "X",sound:oldskool_kick2, label:"X"},
+    "8": {key: "C",sound:oldskool_kick1, label:"C"}
   },
 
   "Kit 3": {
-
+    "0": {key: "Q", sound: oldskool_perc1, label:"Q"},
+    "1": {key: "W", sound:oldskool_hat1 , label:"W"},
+    "2": {key: "E",sound:oldskool_hat2, label:"E"},
+    "3": {key: "A",sound:oldskool_perc3, label:"A"},
+    "4": {key: "S",sound:oldskool_snare1, label:"S"},
+    "5": {key: "D",sound:oldskool_snare2, label:"D"},
+    "6": {key: "Z",sound:oldskool_perc2, label:"Z"},
+    "7": {key: "X",sound:oldskool_kick2, label:"X"},
+    "8": {key: "C",sound:oldskool_kick1, label:"C"}
   },
 
   "Kit 4": {
-
+    "0": {key: "Q", sound: oldskool_perc1, label:"Q"},
+    "1": {key: "W", sound:oldskool_hat1 , label:"W"},
+    "2": {key: "E",sound:oldskool_hat2, label:"E"},
+    "3": {key: "A",sound:oldskool_perc3, label:"A"},
+    "4": {key: "S",sound:oldskool_snare1, label:"S"},
+    "5": {key: "D",sound:oldskool_snare2, label:"D"},
+    "6": {key: "Z",sound:oldskool_perc2, label:"Z"},
+    "7": {key: "X",sound:oldskool_kick2, label:"X"},
+    "8": {key: "C",sound:oldskool_kick1, label:"C"}
   }
  }
 
@@ -116,13 +140,12 @@ class App extends Component {
   }
 
 
-  existsInObj = (key, obj) => {
+  existsInObj = (key, selectedkit) => {
     // Checks if key exists in an object
-    
+
     let isFound = false
 
-    Object.values(obj).forEach(row => {
-      
+    Object.values(selectedkit).forEach(row => {
       // Return true if found
       if (key === row.key) {
         isFound = true
@@ -144,12 +167,15 @@ class App extends Component {
     
     // Make key pressed uppercase
     const keyPressed = event.key.toUpperCase()
-    
     // Check if key pressed exists in samples
-    if (this.existsInObj(keyPressed, samples)) {
+    const selectedkit = this.state.selectedkit  
+    
+    if (this.existsInObj(keyPressed, samples[selectedkit])) {
+      // Array to iterate over values in selected drumkit
+      const drumkit = Object.values(samples[selectedkit])
       
       // Play corresponding sound
-      samples.forEach(element => {
+      drumkit.forEach(element => {
         if (element.key === keyPressed) {
           this.playsound(element.sound)
         }
