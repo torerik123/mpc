@@ -11,20 +11,31 @@ import oldskool_perc3 from './sounds/oldskool/oldskool_perc3.wav';
 import oldskool_snare1 from './sounds/oldskool/oldskool_snare1.wav';
 import oldskool_snare2 from './sounds/oldskool/oldskool_snare2.wav';
 
-const samples = [
-  {key: "Q", sound: oldskool_perc1, label:"Q"},
-  {key: "W", sound:oldskool_hat1 , label:"W"}, 
-  {key: "E",sound:oldskool_hat2, label:"E"},
+const samples = {
+  "Old Skool": {
+    "0": {key: "Q", sound: oldskool_perc1, label:"Q"},
+    "1": {key: "W", sound:oldskool_hat1 , label:"W"},
+    "2": {key: "E",sound:oldskool_hat2, label:"E"},
+    "3": {key: "A",sound:oldskool_perc3, label:"A"},
+    "4": {key: "S",sound:oldskool_snare1, label:"S"},
+    "5": {key: "D",sound:oldskool_snare2, label:"D"},
+    "6": {key: "Z",sound:oldskool_perc2, label:"Z"},
+    "7": {key: "X",sound:oldskool_kick2, label:"X"},
+    "8": {key: "C",sound:oldskool_kick1, label:"C"}
+  },
 
-  {key: "A",sound:oldskool_perc3, label:"A"},
-  {key: "S",sound:oldskool_snare1, label:"S"},
-  {key: "D",sound:oldskool_snare2, label:"D"},
-  
-  {key: "Z",sound:oldskool_perc2, label:"Z"},
-  {key: "X",sound:oldskool_kick2, label:"X"},
-  {key: "C",sound:oldskool_kick1, label:"C"},
-  
-]
+  "Kit 2" : {
+
+  },
+
+  "Kit 3": {
+
+  },
+
+  "Kit 4": {
+
+  }
+ }
 
 const drumkits = [
   {key: "1", name: "Old Skool"},
@@ -46,15 +57,30 @@ class App extends Component {
   
   renderbuttons = () => {
     // Creates a button for each sample
-    return samples.map((soundObj, i) => {
-      return (
-        <div>
-          <button className="drumpad" key={i} onClick={()=> this.playsound(soundObj.sound)}>
-            {soundObj.label}
-          </button>
-        </div>
-      ) 
-    })
+
+    // Get selected kit
+    const selectedkit = this.state.selectedkit
+    
+    // Look for selected kit in samples
+    for ( let kit in samples) {
+
+      if(kit === selectedkit) {
+        // New array with selected drumkit
+        const drumkit = Object.values(samples[selectedkit])
+        
+        // Return button for each value
+        return drumkit.map((soundObj, i) => {
+          return (
+            <div>
+              <button className="drumpad" key={i} onClick={()=> this.playsound(soundObj.sound)}>
+                {soundObj.label}
+              </button>
+            </div>
+          )
+        })
+      }
+    }
+
   }
 
   renderpadbank = () => {
@@ -189,6 +215,8 @@ class App extends Component {
 }
 
 // TODO: Separate drum kits into different file
+
+// TODO: Fix play sound to work with new kits object
 
 // TODO: CSS
 
