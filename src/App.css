@@ -1,32 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 .App {
   text-align: center;
+  display: flex;
+  font-family: 'Press Start 2P', cursive;
 }
 
 .container {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .mpc {
-  width:50%;
   display: flex;
-  align-self:center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
   background-color: #262626;
+  padding-left: 20px;
+  padding-right:20px;
 }
 
 /* Drumpads */
 .pad-container {
-  display: flex;
+  padding-top:20px;
+  padding-bottom: 20px;
   display: grid;
-  grid-template-columns: 100px 100px 100px;
+  grid-template-columns: auto auto auto
 }
 
 .drumpad {
   width:100px;
-  height:100px;
+  height:60px;
   border-width: 1px;
+  margin-top: 10px;
 }
+
+/* Pad bank - Switch drum kits */
 
 .kit-controls {
   display: flex;
@@ -40,6 +50,11 @@
   width:90%;
 }
 
+.kit-selected-title {
+  color:#FFF;
+  margin-top:15px;
+}
+
 .kit-selected {
   display: flex;
   flex-direction: column;
@@ -49,7 +64,6 @@
   height:40px;
   background-color: lightskyblue;
   color:#000;
-  font-weight: bold;
 }
 
 .kit-text {
@@ -61,7 +75,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top:30px;
+  margin-top:-20px;
   height:70px;
   width:100%;
 }
@@ -74,7 +88,6 @@
 
 .pad-bank-title {
   color:#FFF;
-  font-weight: bold;
   margin:0;
 }
 
@@ -90,6 +103,37 @@
 
 .how-to-use {
   text-align: center;
-  margin-top: 10px;
+  margin-top: 25px;
   color:#FFF;
+}
+
+@media only screen and (min-width: 768px) {
+  .drumpad {
+    width:100px;
+    height: 100px;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .drumpad {
+    width:50px;
+    height: 50px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .mpc {
+    margin-top: 80px;
+    flex-direction: row;
+    width:70%;
+  }
+
+  .drumpad {
+    width:100px;
+    height: 100px;
+  }
+
+  .kit-selected-title {
+    margin-top: 40px;
+  }
 }

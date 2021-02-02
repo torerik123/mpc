@@ -104,7 +104,7 @@ class App extends Component {
         // Return button for each value
         return drumkit.map((soundObj, i) => {
           return (
-            <div>
+            <div className="container">
               <button className="drumpad" key={i} onClick={()=> this.playsound(soundObj.sound)}>
                 {soundObj.label}
               </button>
@@ -219,7 +219,7 @@ class App extends Component {
         <div className="container">
           <div className="mpc">
             <div className="pad-container">
-              {this.renderbuttons()}
+                {this.renderbuttons()}
             </div>
             <div className="kit-controls">
               <div className="kit-controls-margin">
@@ -236,23 +236,23 @@ class App extends Component {
                 </div>
               </div>
               <div className="kit-row-3">
-                <p className="how-to-use">Pad bank: Select drum kits<br></br>
-                                          Play sound: Use the keyboard or click the pads to play samples</p>
-              </div>
+                <p className="how-to-use">
+                  <u>Pad bank:</u>
+                  <br></br> 
+                  Select drum kits
+                  <br></br>
+                  <br></br>
+                  <u>Play sound:</u> <br></br>Use the keyboard or click the pads to play samples
+                </p>
               </div>
             </div>
           </div>
-        </div>        
-      </div>
+        </div>
+      </div>        
+    </div>
     );
   }
   
 }
-
-// TODO: Separate drum kits into different file
-
-// TODO: Fix play sound to work with new kits object
-
-// TODO: CSS
 
 export default App;
