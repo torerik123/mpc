@@ -1,6 +1,6 @@
 # MPC Drum machine
 
-Drum machine made with React and [Howler.js](https://howlerjs.com/).
+Drum machine made with React and [Howler.js](https://howlerjs.com/). Design inspired by the AKAI MPC500.
 
 Use the keyboard to play sounds or click the pads. The pad bank stores different drum kits and allows the user to
 swich drumkits.
@@ -8,9 +8,9 @@ swich drumkits.
 The drumkits are made with sounds from soundpacks.com.
 
 Kits used:
-[Old School Boom Bap Kit](https://soundpacks.com/free-sound-packs/old-school-drum-kit/)
-[Buchla Drum Samples](https://soundpacks.com/free-sound-packs/buchla-drum-samples/)
-[Drumbrute Kit](https://soundpacks.com/free-sound-packs/drumbrute-kit/)
+[Old School Boom Bap Kit](https://soundpacks.com/free-sound-packs/old-school-drum-kit/), 
+[Buchla Drum Samples](https://soundpacks.com/free-sound-packs/buchla-drum-samples/),
+[Drumbrute Kit](https://soundpacks.com/free-sound-packs/drumbrute-kit/), 
 
 # Getting Started with Create React App
 
