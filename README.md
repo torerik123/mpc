@@ -1,3 +1,17 @@
+# MPC Drum machine
+
+Drum machine made with React and [Howler.js](https://howlerjs.com/).
+
+Use the keyboard to play sounds or click the pads. The pad bank stores different drum kits and allows the user to
+swich drumkits.
+
+The drumkits are made with sounds from soundpacks.com.
+
+Kits used:
+[Old School Boom Bap Kit](https://soundpacks.com/free-sound-packs/old-school-drum-kit/)
+[Buchla Drum Samples](https://soundpacks.com/free-sound-packs/buchla-drum-samples/)
+[Drumbrute Kit](https://soundpacks.com/free-sound-packs/drumbrute-kit/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
