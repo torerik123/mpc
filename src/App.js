@@ -2,38 +2,26 @@ import './App.css';
 import React, { Component } from 'react'
 import {Howl, Howler} from 'howler';
 
-// Kit 1
-import oldskool_hat1 from './sounds/oldskool/oldskool_hat1.wav';
-import oldskool_hat2 from './sounds/oldskool/oldskool_hat2.wav';
-import oldskool_kick1 from './sounds/oldskool/oldskool_kick1.wav';
-import oldskool_kick2 from './sounds/oldskool/oldskool_kick2.wav';
-import oldskool_perc1 from './sounds/oldskool/oldskool_perc1.wav';
-import oldskool_perc2 from './sounds/oldskool/oldskool_perc2.wav';
-import oldskool_perc3 from './sounds/oldskool/oldskool_perc3.wav';
-import oldskool_snare1 from './sounds/oldskool/oldskool_snare1.wav';
-import oldskool_snare2 from './sounds/oldskool/oldskool_snare2.wav';
+// Old school kit
+import {
+  oldskool_hat1, oldskool_hat2, oldskool_kick1,
+  oldskool_kick2, oldskool_perc1, oldskool_perc2,
+  oldskool_perc3, oldskool_snare1, oldskool_snare2
+} from './sounds.js';
 
-// Kit 2
-import buzz from './sounds/buchladrums/Buzz.wav';
-import clave from './sounds/buchladrums/Clave.wav';
-import clumk from './sounds/buchladrums/Clumk.wav';
-import congabig from './sounds/buchladrums/Congabig.wav';
-import midtom from './sounds/buchladrums/Midtom.wav';
-import Tabla8 from './sounds/buchladrums/Tabla8.wav';
-import Tabla9 from './sounds/buchladrums/Tabla9.wav';
-import Tabla11 from './sounds/buchladrums/Tabla11.wav';
-import Woodblock from './sounds/buchladrums/Woodblock.wav';
+// Buchla Drums
+import {
+  buzz, clave, clumk,
+  congabig, midtom, Tabla8,
+  Tabla9, Tabla11, Woodblock
+} from './sounds.js'
 
-// Kit 3
-import AltSD5 from './sounds/drumbrute/AltSD5.wav';
-import Clap2 from './sounds/drumbrute/Clap2.wav';
-import Clap3 from './sounds/drumbrute/Clap3.wav';
-import Hats1 from './sounds/drumbrute/Hats1.wav';
-import Hats37 from './sounds/drumbrute/Hats37.wav';
-import KickALong2 from './sounds/drumbrute/KickALong2.wav';
-import Kick12 from './sounds/drumbrute/Kik12.wav';
-import KickOD4 from './sounds/drumbrute/KikOD4.wav';
-import Snare29 from './sounds/drumbrute/Snare29.wav';
+// Drumbrute
+import {
+  AltSD5, Clap2, Clap3,
+  Hats1, Hats37, KickALong2,
+  Kick12, KickOD4, Snare29
+} from './sounds.js'
 
 const samples = {
   "Old Skool": {
@@ -60,7 +48,7 @@ const samples = {
     "8": {key: "C",sound:Woodblock, label:"C"}
   },
 
-  "Drum Brute": {
+  "Drumbrute": {
     "0": {key: "Q", sound: Hats37, label:"Q"},
     "1": {key: "W", sound:Hats1 , label:"W"},
     "2": {key: "E",sound:AltSD5, label:"E"},
@@ -76,7 +64,7 @@ const samples = {
 const drumkits = [
   {key: "1", name: "Old Skool"},
   {key: "2", name: "Buchla Drums"},
-  {key: "3", name: "Drum Brute"},
+  {key: "3", name: "Drumbrute"},
 ]
 
 class App extends Component {
